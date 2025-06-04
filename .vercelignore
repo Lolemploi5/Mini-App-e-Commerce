@@ -1,0 +1,15 @@
+# Python files (not needed for frontend deployment)
+venv/
+*.py
+requirements.txt
+*.pyc
+__pycache__/
+
+# Development files
+*.md
+*.sh
+.git/
+.env
+
+# Only keep web app files
+!web/

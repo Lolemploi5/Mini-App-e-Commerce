@@ -13,7 +13,7 @@
 
 ### Méthode 2 : Déploiement manuel
 ```bash
-cd web
+# Depuis la racine du projet
 npm run build
 vercel --prod
 ```
@@ -26,9 +26,9 @@ vercel --prod
 ## ⚙️ Configuration
 
 Le fichier `vercel.json` configure automatiquement :
-- **Build Command** : `npm run build`
+- **Build Command** : `npm run build` (exécute `cd web && npm run build`)
+- **Install Command** : `npm run install-web` (exécute `cd web && npm install`)
 - **Output Directory** : `web/dist`
-- **Install Command** : `npm install`
 
 ## 🔧 Variables d'environnement
 

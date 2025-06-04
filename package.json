@@ -1,0 +1,26 @@
+{
+  "name": "mini-app-telegram-ecommerce",
+  "version": "1.0.0",
+  "description": "Bot Telegram avec Mini App E-Commerce Vue.js",
+  "main": "telegram_bot.py",
+  "scripts": {
+    "install-web": "cd web && npm install",
+    "dev": "cd web && npm run dev",
+    "build": "cd web && npm run build",
+    "preview": "cd web && npm run preview",
+    "deploy": "cd web && npm run build && vercel --prod",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "telegram",
+    "bot",
+    "miniapp",
+    "ecommerce",
+    "vue",
+    "vercel"
+  ],
+  "author": "Votre nom",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}

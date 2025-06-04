@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App e-Commerce</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 30px 20px;
+        }
+        
+        .product {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .product h3 {
+            color: #2d3436;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .product p {
+            color: #636e72;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #00b894;
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #00b894, #00a085);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,184,148,0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #636e72;
+            font-size: 14px;
+        }
+        
+        .telegram-info {
+            background: #0088cc;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛒 Mini App e-Commerce</h1>
+            <p>Boutique en ligne intégrée à Telegram</p>
+        </div>
+        
+        <div class="content">
+            <div class="telegram-info">
+                <p>✨ Cette mini app fonctionne directement dans Telegram !</p>
+            </div>
+            
+            <div class="product">
+                <h3>🎧 Casque Audio Premium</h3>
+                <p>Casque audio sans fil avec réduction de bruit active et autonomie de 30h.</p>
+                <div class="price">89,99 €</div>
+                <button class="btn" onclick="buyProduct('casque-audio')">
+                    Acheter maintenant
+                </button>
+            </div>
+            
+            <div class="product">
+                <h3>📱 Smartphone Ultra</h3>
+                <p>Dernier smartphone avec appareil photo 108MP et écran OLED 6.7".</p>
+                <div class="price">599,99 €</div>
+                <button class="btn" onclick="buyProduct('smartphone')">
+                    Acheter maintenant
+                </button>
+            </div>
+            
+            <div class="product">
+                <h3>💻 Laptop Pro</h3>
+                <p>Ordinateur portable haute performance pour le travail et les jeux.</p>
+                <div class="price">1299,99 €</div>
+                <button class="btn" onclick="buyProduct('laptop')">
+                    Acheter maintenant
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Propulsé par Telegram Mini Apps</p>
+        </div>
+    </div>
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        // Initialiser l'API Telegram Web App
+        let tg = window.Telegram.WebApp;
+        
+        // Configurer le thème
+        tg.ready();
+        tg.expand();
+        
+        // Fonction pour acheter un produit
+        function buyProduct(productId) {
+            // Ici vous pouvez ajouter la logique d'achat
+            tg.showAlert(`Achat initié pour le produit: ${productId}`);
+            
+            // Exemple : envoyer des données au bot
+            tg.sendData(JSON.stringify({
+                action: 'buy_product',
+                product_id: productId,
+                user_id: tg.initDataUnsafe.user?.id
+            }));
+        }
+        
+        // Personnaliser l'apparence selon le thème Telegram
+        if (tg.colorScheme === 'dark') {
+            document.body.style.background = 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)';
+        }
+    </script>
+</body>
+</html>

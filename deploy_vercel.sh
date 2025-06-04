@@ -2,10 +2,7 @@
 
 echo "🚀 Déploiement de la Mini App sur Vercel..."
 
-# Aller dans le dossier web
-cd web
-
-# Build de l'application
+# Build de l'application depuis la racine
 echo "📦 Construction de l'application..."
 npm run build
 
